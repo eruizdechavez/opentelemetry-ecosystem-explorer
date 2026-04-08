@@ -23,6 +23,7 @@ import { NotFoundPage } from "@/features/not-found/not-found-page";
 import { JavaInstrumentationListPage } from "@/features/java-agent/java-instrumentation-list-page";
 import { JavaConfigurationListPage } from "@/features/java-agent/java-configuration-list-page";
 import { InstrumentationDetailPage } from "@/features/java-agent/instrumentation-detail-page";
+import { ConfigurationBuilderPage } from "@/features/java-agent/configuration/configuration-builder-page";
 
 export default function App() {
   return (
@@ -39,6 +40,10 @@ export default function App() {
               element={<InstrumentationDetailPage />}
             />
             <Route path="/java-agent/configuration" element={<JavaConfigurationListPage />} />
+            <Route
+              path="/java-agent/configuration/builder"
+              element={<ConfigurationBuilderPage />}
+            />
             <Route path="/collector" element={<CollectorPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
