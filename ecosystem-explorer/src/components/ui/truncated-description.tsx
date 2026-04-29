@@ -15,6 +15,7 @@
  */
 import { useId, useMemo, useState, type JSX } from "react";
 import { truncateDescription } from "@/lib/truncate-description";
+import { MarkdownDescription } from "./markdown-description";
 
 interface TruncatedDescriptionProps {
   text: string;
@@ -33,25 +34,29 @@ export function TruncatedDescription({
   if (summary === "") return null;
 
   return (
-    <p className={className ?? "text-muted-foreground text-xs"}>
-      {summary}
+    <div className={className ?? "text-muted-foreground text-xs"}>
+      <p>
+        <MarkdownDescription text={summary} inline />
+        {rest !== null && (
+          <>
+            {" "}
+            <button
+              type="button"
+              onClick={() => setExpanded((e) => !e)}
+              aria-expanded={expanded}
+              aria-controls={tailId}
+              className="text-primary underline-offset-2 hover:underline"
+            >
+              {expanded ? "Show less" : "Show more"}
+            </button>
+          </>
+        )}
+      </p>
       {rest !== null && (
-        <>
-          {" "}
-          <span id={tailId} data-testid="truncated-rest" hidden={!expanded}>
-            {rest}
-          </span>{" "}
-          <button
-            type="button"
-            onClick={() => setExpanded((e) => !e)}
-            aria-expanded={expanded}
-            aria-controls={tailId}
-            className="text-primary underline-offset-2 hover:underline"
-          >
-            {expanded ? "Show less" : "Show more"}
-          </button>
-        </>
+        <div id={tailId} data-testid="truncated-rest" hidden={!expanded}>
+          <MarkdownDescription text={rest} />
+        </div>
       )}
-    </p>
+    </div>
   );
 }
