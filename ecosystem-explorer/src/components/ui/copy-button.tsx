@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Copy } from "lucide-react";
 
 interface CopyButtonProps {
@@ -32,13 +33,16 @@ const DEFAULT_CLASS =
 
 export function CopyButton({
   text,
-  label = "Copy",
-  copiedLabel = "Copied",
+  label,
+  copiedLabel,
   className,
   onClick,
   onCopy,
 }: CopyButtonProps) {
+  const { t } = useTranslation("common");
   const [copied, setCopied] = useState(false);
+  const translatedLabel = label ?? t("copy");
+  const translatedCopiedLabel = copiedLabel ?? t("copied");
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
@@ -70,7 +74,7 @@ export function CopyButton({
     );
   };
 
-  const visibleLabel = copied ? copiedLabel : label;
+  const visibleLabel = copied ? translatedCopiedLabel : translatedLabel;
 
   return (
     <button

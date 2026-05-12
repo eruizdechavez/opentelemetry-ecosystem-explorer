@@ -33,6 +33,7 @@ import { GlowBadge } from "@/components/ui/glow-badge";
 import { DetailCard } from "@/components/ui/detail-card";
 import { useCollectorComponents, useCollectorVersions } from "@/hooks/use-collector-data";
 import { isEnabled } from "@/lib/feature-flags";
+import { useTranslation } from "react-i18next";
 
 const getIcon = (type: string) => {
   switch (type) {
@@ -314,6 +315,8 @@ function CollectorPageInner() {
 }
 
 export function CollectorPage() {
+  const { t } = useTranslation("common");
+
   return (
     <PageContainer>
       <div className="space-y-6">
@@ -336,7 +339,7 @@ export function CollectorPage() {
             <div className="bg-secondary/10 mb-6 inline-flex h-20 w-20 items-center justify-center rounded-full">
               <Box className="text-secondary h-10 w-10 animate-pulse" aria-hidden="true" />
             </div>
-            <h2 className="text-foreground text-2xl font-bold tracking-tight">Coming Soon</h2>
+            <h2 className="text-foreground text-2xl font-bold tracking-tight">{t("comingSoon")}</h2>
             <p className="text-muted-foreground mx-auto mt-3 max-w-md text-lg leading-relaxed">
               We're currently building the Collector component explorer. Stay tuned for a
               comprehensive view of receivers, processors, and more!
