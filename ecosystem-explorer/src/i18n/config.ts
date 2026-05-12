@@ -27,6 +27,7 @@ i18n
     ns: ["common", "layout", "home", "collector", "java-agent", "about", "format"],
     defaultNS: "common",
     backend: { loadPath: "/locales/{{lng}}/{{ns}}.json" },
+    interpolation: { escapeValue: false },
   });
 
 i18n.on("languageChanged", (lng) => {
