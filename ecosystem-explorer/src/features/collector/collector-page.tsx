@@ -53,6 +53,7 @@ const getIcon = (type: string) => {
 };
 
 function CollectorPageInner() {
+  const { t } = useTranslation("collector");
   const [searchParams, setSearchParams] = useSearchParams();
   const { version: versionParam } = useParams();
   const [searchQuery, setSearchQuery] = useState("");
@@ -110,7 +111,7 @@ function CollectorPageInner() {
         <div className="relative z-10 flex flex-col gap-6 md:flex-row md:items-end">
           <div className="flex-1 space-y-2">
             <label htmlFor="search" className="text-muted-foreground text-sm font-medium">
-              Search
+              {t("filters.search.label")}
             </label>
             <div className="relative">
               <Search
@@ -120,7 +121,7 @@ function CollectorPageInner() {
               <input
                 id="search"
                 type="text"
-                placeholder="Filter by name or description..."
+                placeholder={t("filters.search.placeholder")}
                 className="border-border/60 bg-background/80 focus:border-primary/50 focus:ring-primary/20 w-full rounded-lg border py-2.5 pr-4 pl-10 text-sm backdrop-blur-sm transition-all duration-200 focus:ring-2 focus:outline-none"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
@@ -131,7 +132,7 @@ function CollectorPageInner() {
           <div className="flex flex-wrap gap-4">
             <div className="space-y-2">
               <label htmlFor="type-filter" className="text-muted-foreground text-sm font-medium">
-                Type
+                {t("filters.type.label")}
               </label>
               <div className="relative">
                 <select
@@ -140,12 +141,12 @@ function CollectorPageInner() {
                   onChange={(e) => setTypeFilter(e.target.value)}
                   className="border-border/60 bg-background/80 focus:border-primary/50 focus:ring-primary/20 w-40 cursor-pointer appearance-none rounded-lg border py-2.5 pr-10 pl-3 text-sm font-medium backdrop-blur-sm transition-all duration-200 focus:ring-2 focus:outline-none"
                 >
-                  <option value="all">All Types</option>
-                  <option value="receiver">Receivers</option>
-                  <option value="processor">Processors</option>
-                  <option value="exporter">Exporters</option>
-                  <option value="extension">Extensions</option>
-                  <option value="connector">Connectors</option>
+                  <option value="all">{t("filters.type.all")}</option>
+                  <option value="receiver">{t("filters.type.receiver")}</option>
+                  <option value="processor">{t("filters.type.processor")}</option>
+                  <option value="exporter">{t("filters.type.exporter")}</option>
+                  <option value="extension">{t("filters.type.extension")}</option>
+                  <option value="connector">{t("filters.type.connector")}</option>
                 </select>
                 <ChevronDown
                   className="text-muted-foreground pointer-events-none absolute top-1/2 right-3 h-4 w-4 -translate-y-1/2"
@@ -156,7 +157,7 @@ function CollectorPageInner() {
 
             <div className="space-y-2">
               <label htmlFor="version-select" className="text-muted-foreground text-sm font-medium">
-                Version
+                {t("filters.version.label")}
               </label>
               <div className="relative">
                 <select
@@ -168,7 +169,7 @@ function CollectorPageInner() {
                 >
                   {versionData?.versions.map((v) => (
                     <option key={v.version} value={v.version}>
-                      v{v.version} {v.is_latest ? "(latest)" : ""}
+                      v{v.version} {v.is_latest ? t("filters.version.latest") : ""}
                     </option>
                   ))}
                 </select>
@@ -187,24 +188,25 @@ function CollectorPageInner() {
           <div className="inline-flex animate-pulse rounded-full p-4 shadow-[0_0_60px_hsl(var(--primary-hsl)/0.2)]">
             <Loader2 className="text-primary h-10 w-10 animate-spin" aria-hidden="true" />
           </div>
-          <p className="text-muted-foreground text-sm font-medium">Loading components...</p>
+          <p className="text-muted-foreground text-sm font-medium">{t("states.loading")}</p>
         </div>
       ) : hasError ? (
         <div className="flex flex-col items-center justify-center space-y-4 py-32">
           <div className="flex h-16 w-16 items-center justify-center rounded-full bg-red-100/10 text-red-500">
             <Box className="h-8 w-8" aria-hidden="true" />
           </div>
-          <h2 className="text-foreground text-2xl font-bold">Error loading data</h2>
+          <h2 className="text-foreground text-2xl font-bold">{t("states.error.title")}</h2>
           <p className="text-muted-foreground max-w-xs text-center">
-            Please try refreshing the page.
+            {t("states.error.description")}
           </p>
         </div>
       ) : (
         <div className="space-y-6">
           <div className="border-border/40 flex items-center justify-between border-b pb-4">
             <div className="text-muted-foreground text-sm font-medium">
-              Showing <span className="text-foreground">{filteredComponents.length}</span>{" "}
-              components
+              {t("results.showing")}{" "}
+              <span className="text-foreground">{filteredComponents.length}</span>{" "}
+              {t("results.components")}
             </div>
           </div>
 
@@ -263,8 +265,7 @@ function CollectorPageInner() {
                         </div>
 
                         <p className="text-muted-foreground/80 line-clamp-3 flex-1 text-sm leading-relaxed">
-                          {comp.description ||
-                            "Browse technical details and configuration options for this component."}
+                          {comp.description || t("card.defaultDescription")}
                         </p>
 
                         <div className="border-border/10 flex items-center gap-2 border-t pt-2">
@@ -292,9 +293,9 @@ function CollectorPageInner() {
                 <div className="bg-muted/10 mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full">
                   <Search className="text-muted-foreground/30 h-8 w-8" aria-hidden="true" />
                 </div>
-                <h3 className="text-foreground text-xl font-semibold">No components found</h3>
+                <h3 className="text-foreground text-xl font-semibold">{t("card.empty.title")}</h3>
                 <p className="text-muted-foreground mx-auto mt-2 max-w-xs">
-                  We couldn't find any components matching your search criteria.
+                  {t("card.empty.description")}
                 </p>
                 <button
                   onClick={() => {
@@ -303,7 +304,7 @@ function CollectorPageInner() {
                   }}
                   className="text-primary mt-6 text-sm font-semibold hover:underline"
                 >
-                  Clear all filters
+                  {t("card.empty.clearFilters")}
                 </button>
               </div>
             )}
@@ -315,7 +316,8 @@ function CollectorPageInner() {
 }
 
 export function CollectorPage() {
-  const { t } = useTranslation("common");
+  const { t } = useTranslation("collector");
+  const { t: tCommon } = useTranslation("common");
 
   return (
     <PageContainer>
@@ -323,14 +325,13 @@ export function CollectorPage() {
         <BackButton />
         <header className="space-y-4">
           <h1 className="text-foreground text-4xl font-bold tracking-tight sm:text-5xl">
-            Collector{" "}
+            {t("header.title")}{" "}
             <span className="from-otel-orange to-otel-blue bg-linear-to-r bg-clip-text text-transparent">
-              Components
+              {t("header.titleAccent")}
             </span>
           </h1>
           <p className="text-muted-foreground max-w-2xl text-lg leading-relaxed">
-            Navigate the OpenTelemetry Collector ecosystem. Discover receivers, processors,
-            exporters, and extensions across different distributions.
+            {t("header.description")}
           </p>
         </header>
 
@@ -339,10 +340,11 @@ export function CollectorPage() {
             <div className="bg-secondary/10 mb-6 inline-flex h-20 w-20 items-center justify-center rounded-full">
               <Box className="text-secondary h-10 w-10 animate-pulse" aria-hidden="true" />
             </div>
-            <h2 className="text-foreground text-2xl font-bold tracking-tight">{t("comingSoon")}</h2>
+            <h2 className="text-foreground text-2xl font-bold tracking-tight">
+              {tCommon("comingSoon")}
+            </h2>
             <p className="text-muted-foreground mx-auto mt-3 max-w-md text-lg leading-relaxed">
-              We're currently building the Collector component explorer. Stay tuned for a
-              comprehensive view of receivers, processors, and more!
+              {t("header.comingSoon")}
             </p>
           </div>
         ) : (
