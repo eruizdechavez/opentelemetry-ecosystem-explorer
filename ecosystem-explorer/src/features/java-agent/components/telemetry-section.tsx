@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { SectionDivider } from "@/components/ui/section-divider";
 import { GlowBadge } from "@/components/ui/glow-badge";
 import { AttributeTable } from "./attribute-table";
@@ -25,6 +26,7 @@ interface TelemetrySectionProps {
 }
 
 export function TelemetrySection({ telemetry }: TelemetrySectionProps) {
+  const { t } = useTranslation("java-agent");
   const [selectedWhen, setSelectedWhen] = useState(telemetry[0]?.when ?? "default");
 
   // Validate selected value and fall back to first option if invalid
@@ -54,7 +56,7 @@ export function TelemetrySection({ telemetry }: TelemetrySectionProps) {
         {/* Metrics Section */}
         {hasMetrics && (
           <div>
-            <SectionDivider>Metrics</SectionDivider>
+            <SectionDivider>{t("telemetrySection.metrics")}</SectionDivider>
             <div className={hasBothMetricsAndSpans ? "space-y-8" : "mx-auto max-w-3xl space-y-8"}>
               {currentTelemetry.metrics &&
                 currentTelemetry.metrics.map((metric) => (
@@ -81,7 +83,7 @@ export function TelemetrySection({ telemetry }: TelemetrySectionProps) {
                       {/* Unit section with border */}
                       <div className="border-border/30 flex items-center gap-3 border-b pb-6">
                         <span className="text-muted-foreground text-xs font-bold tracking-widest uppercase">
-                          Unit
+                          {t("telemetrySection.unit")}
                         </span>
                         <code className="border-border/30 text-foreground/80 rounded border bg-white/[0.03] px-2 py-1 text-sm">
                           {metric.unit}
@@ -92,7 +94,7 @@ export function TelemetrySection({ telemetry }: TelemetrySectionProps) {
                       {metric.attributes && metric.attributes.length > 0 && (
                         <div className="space-y-4">
                           <h4 className="text-muted-foreground text-xs font-black tracking-[0.2em] uppercase">
-                            Attributes
+                            {t("telemetrySection.attributes")}
                           </h4>
                           <AttributeTable attributes={metric.attributes} />
                         </div>
@@ -107,7 +109,7 @@ export function TelemetrySection({ telemetry }: TelemetrySectionProps) {
         {/* Spans Section */}
         {hasSpans && (
           <div>
-            <SectionDivider>Spans</SectionDivider>
+            <SectionDivider>{t("telemetrySection.spans")}</SectionDivider>
             <div className={hasBothMetricsAndSpans ? "space-y-8" : "mx-auto max-w-3xl space-y-8"}>
               {currentTelemetry.spans &&
                 currentTelemetry.spans.map((span, index) => (
@@ -119,7 +121,7 @@ export function TelemetrySection({ telemetry }: TelemetrySectionProps) {
                       {/* Span kind badge */}
                       <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
                         <h3 className="text-foreground flex-1 text-base font-bold sm:text-lg md:text-xl">
-                          {span.span_kind} Span
+                          {t("telemetrySection.spanTitle", { kind: span.span_kind })}
                         </h3>
                         <GlowBadge variant="info" withGlow className="flex-shrink-0 text-xs">
                           {span.span_kind}
@@ -130,7 +132,7 @@ export function TelemetrySection({ telemetry }: TelemetrySectionProps) {
                       {span.attributes && span.attributes.length > 0 && (
                         <div className="space-y-4">
                           <h4 className="text-muted-foreground text-xs font-black tracking-[0.2em] uppercase">
-                            Attributes
+                            {t("telemetrySection.attributes")}
                           </h4>
                           <AttributeTable attributes={span.attributes} />
                         </div>
@@ -146,9 +148,7 @@ export function TelemetrySection({ telemetry }: TelemetrySectionProps) {
       {/* Empty state */}
       {!hasMetrics && !hasSpans && (
         <div className="flex min-h-[200px] items-center justify-center">
-          <p className="text-muted-foreground text-sm">
-            No metrics or spans defined for this configuration.
-          </p>
+          <p className="text-muted-foreground text-sm">{t("telemetrySection.empty")}</p>
         </div>
       )}
     </div>

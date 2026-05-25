@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 import { useMemo, type JSX } from "react";
+import { useTranslation } from "react-i18next";
 import { Download, RefreshCcw, ListPlus } from "lucide-react";
 import type { ConfigNode } from "@/types/configuration";
 import { useConfigurationBuilder } from "@/hooks/use-configuration-builder";
@@ -28,6 +29,7 @@ interface PreviewCardProps {
 }
 
 export function PreviewCard({ schema, javaAgentVersion }: PreviewCardProps): JSX.Element {
+  const { t } = useTranslation("java-agent");
   const { state, enableAllSections, resetToDefaults, validateAll } = useConfigurationBuilder();
   const yaml = useMemo(
     () => generateYaml(state, schema, { javaAgentVersion: javaAgentVersion || undefined }),
@@ -44,11 +46,11 @@ export function PreviewCard({ schema, javaAgentVersion }: PreviewCardProps): JSX
 
   return (
     <section
-      aria-label="Output Preview"
+      aria-label={t("builder.preview.title")}
       className="border-border/50 bg-card/40 space-y-3 rounded-xl border p-5 lg:sticky lg:top-20 lg:self-start"
     >
       <header className="flex flex-wrap items-center justify-between gap-3">
-        <h3 className="text-foreground text-sm font-medium">Output Preview</h3>
+        <h3 className="text-foreground text-sm font-medium">{t("builder.preview.title")}</h3>
         <div className="flex flex-wrap items-center gap-2">
           <CopyButton
             text={yaml}
@@ -64,7 +66,7 @@ export function PreviewCard({ schema, javaAgentVersion }: PreviewCardProps): JSX
             className="border-border/60 bg-card text-foreground hover:bg-card/80 flex items-center gap-1 rounded-md border px-3 py-1 text-xs"
           >
             <Download className="h-3 w-3" aria-hidden="true" />
-            Download
+            {t("builder.preview.download")}
           </button>
           <span className="bg-border/60 mx-1 h-4 w-px" aria-hidden="true" />
           <button
@@ -73,7 +75,7 @@ export function PreviewCard({ schema, javaAgentVersion }: PreviewCardProps): JSX
             className="border-border/60 bg-card text-foreground hover:bg-card/80 flex items-center gap-1 rounded-md border px-3 py-1 text-xs"
           >
             <ListPlus className="h-3 w-3" aria-hidden="true" />
-            Add all
+            {t("builder.preview.addAll")}
           </button>
           <button
             type="button"
@@ -81,7 +83,7 @@ export function PreviewCard({ schema, javaAgentVersion }: PreviewCardProps): JSX
             className="border-border/60 bg-card text-foreground hover:bg-card/80 flex items-center gap-1 rounded-md border px-3 py-1 text-xs"
           >
             <RefreshCcw className="h-3 w-3" aria-hidden="true" />
-            Reset
+            {t("builder.preview.reset")}
           </button>
         </div>
       </header>

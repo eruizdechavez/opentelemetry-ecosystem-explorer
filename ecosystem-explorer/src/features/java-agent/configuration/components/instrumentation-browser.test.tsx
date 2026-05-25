@@ -164,7 +164,8 @@ describe("InstrumentationBrowser", () => {
         {...browserDefaults}
       />
     );
-    fireEvent.click(screen.getByLabelText("Customize cassandra"));
+    const cassandraRow = screen.getByTestId("instrumentation-row-cassandra");
+    fireEvent.click(cassandraRow.querySelector("button[aria-label='Customize']")!);
     expect(setCustomization).toHaveBeenCalledWith("cassandra", "disabled");
   });
 
@@ -177,7 +178,8 @@ describe("InstrumentationBrowser", () => {
         {...browserDefaults}
       />
     );
-    fireEvent.click(screen.getByLabelText("Customize jmx_metrics"));
+    const jmxRow = screen.getByTestId("instrumentation-row-jmx_metrics");
+    fireEvent.click(jmxRow.querySelector("button[aria-label='Customize']")!);
     expect(setCustomization).toHaveBeenCalledWith("jmx_metrics", "enabled");
   });
 

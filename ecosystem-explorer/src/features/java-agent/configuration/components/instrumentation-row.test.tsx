@@ -103,7 +103,7 @@ describe("InstrumentationRow", () => {
         {...expansionDefaults}
       />
     );
-    fireEvent.click(screen.getByLabelText(/Customize cassandra/));
+    fireEvent.click(screen.getByRole("button", { name: "Customize" }));
     expect(onAdd).toHaveBeenCalledOnce();
   });
 
