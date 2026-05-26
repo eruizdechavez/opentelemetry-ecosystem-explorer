@@ -388,5 +388,55 @@
       "tablistAriaLabel": "{{label}} variant"
     },
     "circularRef": "Circular reference to {{type}}. Configure this under its canonical section."
+  },
+  "format": {
+    "semconv": {
+      "HTTP_CLIENT_SPANS": "HTTP Client Spans",
+      "HTTP_SERVER_SPANS": "HTTP Server Spans",
+      "HTTP_CLIENT_METRICS": "HTTP Client Metrics",
+      "HTTP_SERVER_METRICS": "HTTP Server Metrics",
+      "DATABASE_CLIENT_SPANS": "Database Client Spans",
+      "DATABASE_CLIENT_METRICS": "Database Client Metrics",
+      "DATABASE_POOL_METRICS": "Database Pool Metrics",
+      "MESSAGING_SPANS": "Messaging Spans",
+      "RPC_CLIENT_SPANS": "RPC Client Spans",
+      "RPC_SERVER_SPANS": "RPC Server Spans",
+      "RPC_CLIENT_METRICS": "RPC Client Metrics",
+      "RPC_SERVER_METRICS": "RPC Server Metrics",
+      "FAAS_SERVER_SPANS": "FaaS Server Spans",
+      "GRAPHQL_SERVER_SPANS": "GraphQL Server Spans",
+      "GENAI_CLIENT_SPANS": "GenAI Client Spans",
+      "GENAI_CLIENT_METRICS": "GenAI Client Metrics"
+    },
+    "feature": {
+      "HTTP_ROUTE": {
+        "label": "HTTP Route",
+        "description": "Enriches HTTP spans with route information."
+      },
+      "CONTEXT_PROPAGATION": {
+        "label": "Context Propagation",
+        "description": "Propagates context inter-process (via headers in HTTP, gRPC, and messaging) and inter-thread (executors, actors, and reactive streams)."
+      },
+      "AUTO_INSTRUMENTATION_SHIM": {
+        "label": "Auto Instrumentation Shim",
+        "description": "Adapts or bridges instrumentation from upstream libraries or frameworks."
+      },
+      "CONTROLLER_SPANS": {
+        "label": "Controller Spans",
+        "description": "Generates spans for controller/handler methods in web frameworks. Disabled by default and experimental."
+      },
+      "VIEW_SPANS": {
+        "label": "View Spans",
+        "description": "Generates spans for view rendering such as templates or JSP. Disabled by default and experimental."
+      },
+      "LOGGING_BRIDGE": {
+        "label": "Logging Bridge",
+        "description": "Bridges logging framework events to the OpenTelemetry Logs API, emitting log records from standard logging frameworks."
+      },
+      "RESOURCE_DETECTOR": {
+        "label": "Resource Detector",
+        "description": "Sets resource attributes based on certain conditions."
+      }
+    }
   }
 }
