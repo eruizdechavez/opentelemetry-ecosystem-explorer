@@ -24,7 +24,7 @@ i18n
   .use(initReactI18next)
   .init({
     fallbackLng: "en",
-    ns: ["common", "layout", "home", "collector", "java-agent", "about", "format"],
+    ns: ["common", "layout", "home", "collector", "java-agent", "about"],
     defaultNS: "common",
     backend: { loadPath: "/locales/{{lng}}/{{ns}}.json" },
     interpolation: { escapeValue: false },
