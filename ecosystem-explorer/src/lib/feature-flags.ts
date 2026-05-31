@@ -31,6 +31,10 @@ const FEATURE_FLAGS = [
   // screenshot CI builds enable it so the visual-regression and a11y baseline
   // can cover the design-system primitives in isolation.
   "DEV_SHOWCASE",
+
+  // i18n / Language Switcher - Enables the language selector in the header and
+  // multi-language locale loading. When disabled, the app is locked to English.
+  "I18N",
 ] as const;
 
 const FEATURE_FLAG_PREFIX = "VITE_FEATURE_FLAG_";

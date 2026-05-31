@@ -16,6 +16,7 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { OtelLogo } from "@/components/icons/otel-logo";
+import { isEnabled } from "@/lib/feature-flags";
 
 function LanguageSwitcher() {
   const { i18n, t } = useTranslation("layout");
@@ -62,7 +63,7 @@ export function Header() {
               {t("header.nav.about")}
             </Link>
           </nav>
-          <LanguageSwitcher />
+          {isEnabled("I18N") && <LanguageSwitcher />}
         </div>
       </div>
     </header>
