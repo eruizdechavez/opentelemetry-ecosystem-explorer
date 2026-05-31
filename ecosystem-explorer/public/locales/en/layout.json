@@ -14,9 +14,7 @@
     "nav": {
       "about": "About",
       "github": "GitHub",
-      "githubAriaLabel": "GitHub repository",
-      "otelWebsite": "opentelemetry.io",
-      "otelWebsiteAriaLabel": "OpenTelemetry website"
+      "otelWebsite": "opentelemetry.io"
     },
     "copyright": "© 2026-Present OpenTelemetry Authors"
   }

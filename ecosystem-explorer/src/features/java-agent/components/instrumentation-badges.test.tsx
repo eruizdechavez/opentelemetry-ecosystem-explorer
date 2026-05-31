@@ -56,7 +56,6 @@ describe("TargetBadges", () => {
       />
     );
     expect(screen.getByText("Agent")).toBeInTheDocument();
-    expect(screen.getByLabelText("Has Java Agent target")).toBeInTheDocument();
   });
 
   it("renders Library badge when hasLibraryTarget is true", () => {
@@ -67,7 +66,6 @@ describe("TargetBadges", () => {
       />
     );
     expect(screen.getByText("Library")).toBeInTheDocument();
-    expect(screen.getByLabelText("Has standalone library target")).toBeInTheDocument();
   });
 
   it("highlights Agent badge when javaagent filter is active", () => {
@@ -119,7 +117,6 @@ describe("TelemetryBadges", () => {
       <TelemetryBadges badges={{ ...allFalse, hasSpans: true }} activeFilters={defaultFilters} />
     );
     expect(screen.getByText("Spans")).toBeInTheDocument();
-    expect(screen.getByLabelText("Has span telemetry")).toBeInTheDocument();
   });
 
   it("renders Metrics badge when hasMetrics is true", () => {
@@ -127,7 +124,6 @@ describe("TelemetryBadges", () => {
       <TelemetryBadges badges={{ ...allFalse, hasMetrics: true }} activeFilters={defaultFilters} />
     );
     expect(screen.getByText("Metrics")).toBeInTheDocument();
-    expect(screen.getByLabelText("Has metric telemetry")).toBeInTheDocument();
   });
 
   it("highlights Spans badge when spans filter is active", () => {

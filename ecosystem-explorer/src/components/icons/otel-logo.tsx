@@ -13,7 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-export function OtelLogo({ className }: { className?: string }) {
+import type { SVGProps } from "react";
+
+export function OtelLogo({ className, ...props }: SVGProps<SVGSVGElement>) {
   return (
     <svg
       viewBox="0 0 128 128"
@@ -21,6 +23,7 @@ export function OtelLogo({ className }: { className?: string }) {
       aria-label="OpenTelemetry Logo"
       role="img"
       fill="none"
+      {...props}
     >
       {/* Top-right circle with inner circle */}
       <path

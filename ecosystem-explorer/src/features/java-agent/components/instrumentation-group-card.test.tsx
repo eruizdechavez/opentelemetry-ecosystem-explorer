@@ -218,13 +218,13 @@ describe("InstrumentationGroupCard", () => {
     it("shows aggregated Agent badge when any instrumentation has javaagent target", () => {
       renderGroupCard(multiGroup, defaultFilters);
 
-      expect(screen.getByLabelText("Has Java Agent target")).toBeInTheDocument();
+      expect(screen.getByText("Agent")).toBeInTheDocument();
     });
 
     it("shows aggregated Library badge when any instrumentation has standalone library", () => {
       renderGroupCard(multiGroup, defaultFilters);
 
-      expect(screen.getByLabelText("Has standalone library target")).toBeInTheDocument();
+      expect(screen.getByText("Library")).toBeInTheDocument();
     });
 
     it("shows aggregated Spans badge when any instrumentation has spans", () => {

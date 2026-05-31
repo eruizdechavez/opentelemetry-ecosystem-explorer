@@ -80,9 +80,8 @@
     },
     "tooltips": {
       "targetVersions": "Las versiones de la biblioteca objetivo que admite esta instrumentación.",
-      "targetVersionsAriaLabel": "Más información sobre versiones objetivo",
       "scope": "Un alcance de instrumentación es metadatos que indican la identidad de lo que produjo una pieza de telemetría.",
-      "scopeAriaLabel": "Más información sobre el alcance de instrumentación"
+      "moreInfoAriaLabel": "Más información sobre {{field}}"
     },
     "view": {
       "current": "Vista actual",
@@ -143,22 +142,18 @@
   "badges": {
     "agent": {
       "label": "Agente",
-      "ariaLabel": "Tiene objetivo Java Agent",
       "tooltip": "Instrumentación estándar que se ejecuta junto a la aplicación usando un Java agent."
     },
     "library": {
       "label": "Biblioteca",
-      "ariaLabel": "Tiene objetivo de biblioteca independiente",
       "tooltip": "Las bibliotecas independientes se instalan manualmente y se usan sin el agente."
     },
     "spans": {
       "label": "Spans",
-      "ariaLabel": "Tiene telemetría de spans",
       "tooltip": "Produce telemetría de spans para el rastreo distribuido."
     },
     "metrics": {
       "label": "Métricas",
-      "ariaLabel": "Tiene telemetría de métricas",
       "tooltip": "Produce telemetría de métricas para monitoreo."
     }
   },

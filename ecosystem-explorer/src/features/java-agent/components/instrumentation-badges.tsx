@@ -52,7 +52,6 @@ export function TargetBadges({
                 ? FILTER_STYLES.target.javaagent.active
                 : FILTER_STYLES.target.javaagent.inactive
             }`}
-            aria-label={t("badges.agent.ariaLabel")}
             tabIndex={0}
           >
             {t("badges.agent.label")}
@@ -67,7 +66,6 @@ export function TargetBadges({
                 ? FILTER_STYLES.target.library.active
                 : FILTER_STYLES.target.library.inactive
             }`}
-            aria-label={t("badges.library.ariaLabel")}
             tabIndex={0}
           >
             {t("badges.library.label")}
@@ -98,7 +96,6 @@ export function TelemetryBadges({
                 ? FILTER_STYLES.telemetry.spans.active
                 : FILTER_STYLES.telemetry.spans.inactive
             }`}
-            aria-label={t("badges.spans.ariaLabel")}
             tabIndex={0}
           >
             {t("badges.spans.label")}
@@ -113,7 +110,6 @@ export function TelemetryBadges({
                 ? FILTER_STYLES.telemetry.metrics.active
                 : FILTER_STYLES.telemetry.metrics.inactive
             }`}
-            aria-label={t("badges.metrics.ariaLabel")}
             tabIndex={0}
           >
             {t("badges.metrics.label")}

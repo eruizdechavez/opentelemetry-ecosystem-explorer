@@ -447,7 +447,9 @@ export function InstrumentationDetailPage() {
                                 <Tooltip content={t("detail.tooltips.targetVersions")}>
                                   <HelpCircle
                                     className="focus:ring-ring h-3.5 w-3.5 cursor-help rounded-full opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-1 focus:outline-none"
-                                    aria-label={t("detail.tooltips.targetVersionsAriaLabel")}
+                                    aria-label={t("detail.tooltips.moreInfoAriaLabel", {
+                                      field: t("detail.fields.targetVersions"),
+                                    })}
                                     tabIndex={0}
                                     role="button"
                                   />
@@ -475,7 +477,9 @@ export function InstrumentationDetailPage() {
                         <Tooltip content={t("detail.tooltips.scope")}>
                           <HelpCircle
                             className="focus:ring-ring h-4 w-4 cursor-help rounded-full opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-1 focus:outline-none"
-                            aria-label={t("detail.tooltips.scopeAriaLabel")}
+                            aria-label={t("detail.tooltips.moreInfoAriaLabel", {
+                              field: t("detail.sections.scope"),
+                            })}
                             tabIndex={0}
                             role="button"
                           />

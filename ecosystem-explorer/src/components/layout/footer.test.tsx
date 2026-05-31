@@ -48,7 +48,7 @@ describe("Footer", () => {
       </MemoryRouter>
     );
 
-    const githubLink = screen.getByRole("link", { name: "GitHub repository" });
+    const githubLink = screen.getByRole("link", { name: "GitHub" });
     expect(githubLink).toHaveAttribute(
       "href",
       "https://github.com/open-telemetry/opentelemetry-ecosystem-explorer"
@@ -63,7 +63,7 @@ describe("Footer", () => {
       </MemoryRouter>
     );
 
-    const otelLink = screen.getByRole("link", { name: "OpenTelemetry website" });
+    const otelLink = screen.getByRole("link", { name: "opentelemetry.io" });
     expect(otelLink).toHaveAttribute("href", "https://opentelemetry.io");
     expect(otelLink).toHaveAttribute("target", "_blank");
   });
