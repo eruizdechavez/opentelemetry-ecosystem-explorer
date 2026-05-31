@@ -42,7 +42,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-foreground flex items-center gap-1 transition-colors"
-              aria-label="GitHub repository"
+              aria-label={t("footer.nav.githubAriaLabel")}
             >
               <GitHubIcon className="h-4 w-4" aria-hidden="true" />
               {t("footer.nav.github")}
@@ -52,7 +52,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-foreground flex items-center gap-1 transition-colors"
-              aria-label="OpenTelemetry website"
+              aria-label={t("footer.nav.otelWebsiteAriaLabel")}
             >
               <OtelLogo className="h-4 w-4" aria-hidden="true" />
               {t("footer.nav.otelWebsite")}

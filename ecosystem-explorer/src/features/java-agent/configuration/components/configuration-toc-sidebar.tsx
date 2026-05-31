@@ -110,7 +110,7 @@ export function ConfigurationTocSidebar({
           {isInstrumentation && (
             <div className={SECTION_LABEL}>{t("builder.sidebar.onThisPage")}</div>
           )}
-          <nav aria-label="Configuration sections" className="space-y-0.5">
+          <nav aria-label={t("builder.sidebar.navAriaLabel")} className="space-y-0.5">
             {sections.map((section) => {
               const isActive = section.key === activeKey;
               return (

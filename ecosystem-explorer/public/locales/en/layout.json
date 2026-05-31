@@ -1,6 +1,7 @@
 {
   "header": {
     "title": "OTel Explorer",
+    "languageSwitcher": "Select language",
     "nav": {
       "javaAgent": "Java Agent",
       "collector": "Collector",
@@ -13,7 +14,9 @@
     "nav": {
       "about": "About",
       "github": "GitHub",
-      "otelWebsite": "opentelemetry.io"
+      "githubAriaLabel": "GitHub repository",
+      "otelWebsite": "opentelemetry.io",
+      "otelWebsiteAriaLabel": "OpenTelemetry website"
     },
     "copyright": "© 2026-Present OpenTelemetry Authors"
   }

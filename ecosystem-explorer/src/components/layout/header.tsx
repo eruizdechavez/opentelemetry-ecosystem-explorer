@@ -18,13 +18,13 @@ import { useTranslation } from "react-i18next";
 import { OtelLogo } from "@/components/icons/otel-logo";
 
 function LanguageSwitcher() {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation("layout");
   return (
     <select
       value={i18n.language}
       onChange={(e) => i18n.changeLanguage(e.target.value)}
       className="border-border/40 bg-background text-muted-foreground hover:text-foreground cursor-pointer rounded border px-2 py-1 text-xs transition-colors"
-      aria-label="Select language"
+      aria-label={t("header.languageSwitcher")}
     >
       <option value="en">English</option>
       <option value="es">Español</option>

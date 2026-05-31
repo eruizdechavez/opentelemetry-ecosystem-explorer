@@ -124,7 +124,7 @@ export function KeyValueMapControl({ node, path, value, onChange }: KeyValueMapC
                   <input
                     type="text"
                     aria-label={t("builder.keyValueMap.keyLabel", { index: index + 1 })}
-                    placeholder="key"
+                    placeholder={t("builder.keyValueMap.keyPlaceholder")}
                     value={entry.key}
                     onChange={(e) => {
                       const next = [...entries];
@@ -139,7 +139,7 @@ export function KeyValueMapControl({ node, path, value, onChange }: KeyValueMapC
                   <input
                     type="text"
                     aria-label={t("builder.keyValueMap.valueLabel", { index: index + 1 })}
-                    placeholder="value"
+                    placeholder={t("builder.keyValueMap.valuePlaceholder")}
                     value={entry.value}
                     onChange={(e) => {
                       const next = [...entries];

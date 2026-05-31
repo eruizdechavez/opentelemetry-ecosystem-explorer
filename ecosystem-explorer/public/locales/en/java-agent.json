@@ -80,7 +80,9 @@
     },
     "tooltips": {
       "targetVersions": "The versions of the target library that this instrumentation supports.",
-      "scope": "An instrumentation scope is metadata indicating the identity of what produced a piece of telemetry."
+      "targetVersionsAriaLabel": "More information about target versions",
+      "scope": "An instrumentation scope is metadata indicating the identity of what produced a piece of telemetry.",
+      "scopeAriaLabel": "More information about instrumentation scope"
     },
     "view": {
       "current": "Current View",
@@ -141,18 +143,22 @@
   "badges": {
     "agent": {
       "label": "Agent",
+      "ariaLabel": "Has Java Agent target",
       "tooltip": "Standard instrumentation that runs alongside the application using a Java agent."
     },
     "library": {
       "label": "Library",
+      "ariaLabel": "Has standalone library target",
       "tooltip": "Standalone libraries are installed manually and for use without the agent."
     },
     "spans": {
       "label": "Spans",
+      "ariaLabel": "Has span telemetry",
       "tooltip": "Produces span telemetry for distributed tracing."
     },
     "metrics": {
       "label": "Metrics",
+      "ariaLabel": "Has metric telemetry",
       "tooltip": "Produces metric telemetry for monitoring."
     }
   },
@@ -291,7 +297,8 @@
       },
       "status": "Status",
       "customized": "Customized",
-      "onThisPage": "On this page"
+      "onThisPage": "On this page",
+      "navAriaLabel": "Configuration sections"
     },
     "browser": {
       "title": "Instrumentations",
@@ -355,7 +362,9 @@
       "empty": "No entries yet",
       "tableAriaLabel": "{{label}} entries",
       "keyLabel": "Key {{index}}",
-      "valueLabel": "Value {{index}}"
+      "keyPlaceholder": "key",
+      "valueLabel": "Value {{index}}",
+      "valuePlaceholder": "value"
     },
     "primitiveList": {
       "add": "Add",
