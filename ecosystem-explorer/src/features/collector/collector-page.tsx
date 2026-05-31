@@ -204,9 +204,7 @@ function CollectorPageInner() {
         <div className="space-y-6">
           <div className="border-border/40 flex items-center justify-between border-b pb-4">
             <div className="text-muted-foreground text-sm font-medium">
-              {t("results.showing")}{" "}
-              <span className="text-foreground">{filteredComponents.length}</span>{" "}
-              {t("results.components")}
+              {t("results.showingCount", { count: filteredComponents.length })}
             </div>
           </div>
 

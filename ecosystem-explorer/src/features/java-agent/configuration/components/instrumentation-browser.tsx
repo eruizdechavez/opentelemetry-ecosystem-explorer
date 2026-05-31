@@ -174,7 +174,7 @@ function Body({
           ? t("builder.browser.readout.search", { search, shown: filtered.length, total })
           : statusFilter === "customized"
             ? t("builder.browser.readout.customized", { count: customizationCount, total })
-            : t("builder.browser.readout.noFilter", { total })}
+            : t("builder.browser.readout.noFilter", { count: total })}
       </div>
 
       {filtered.length === 0 ? (

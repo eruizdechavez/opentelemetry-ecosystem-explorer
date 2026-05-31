@@ -25,8 +25,8 @@
     }
   },
   "results": {
-    "showing": "Mostrando",
-    "components": "componentes"
+    "showingCount_one": "Mostrando {{count}} componente",
+    "showingCount_other": "Mostrando {{count}} componentes"
   },
   "card": {
     "defaultDescription": "Consulta los detalles técnicos y opciones de configuración de este componente.",

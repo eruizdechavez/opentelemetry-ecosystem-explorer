@@ -23,7 +23,8 @@
   },
   "list": {
     "title": "OpenTelemetry Java Agent",
-    "description": "Explore {{count}} available instrumentations.",
+    "description_one": "Explore {{count}} available instrumentation.",
+    "description_other": "Explore {{count}} available instrumentations.",
     "invalidVersion": "Version \"{{version}}\" was not found. Showing the latest version ({{latest}}) instead.",
     "dismiss": "Dismiss",
     "loading": "Loading instrumentations...",
@@ -110,7 +111,8 @@
     "results": {
       "loading": "Loading...",
       "error": "Unable to load configurations",
-      "found": "Found {{count}} configurations",
+      "found_one": "Found {{count}} configuration",
+      "found_other": "Found {{count}} configurations",
       "empty": "No configurations found matching your search."
     }
   },
@@ -178,7 +180,8 @@
     "label": "Version"
   },
   "multiGroupCard": {
-    "versions": "{{count}} versions"
+    "versions_one": "{{count}} version",
+    "versions_other": "{{count}} versions"
   },
   "subItem": {
     "viewDetails": "View details for {{name}}"
@@ -297,14 +300,17 @@
     },
     "browser": {
       "title": "Instrumentations",
-      "count": "· {{count}} modules",
-      "customized": "· {{count}} customized",
+      "count_one": "· {{count}} module",
+      "count_other": "· {{count}} modules",
+      "customized_one": "· {{count}} customized",
+      "customized_other": "· {{count}} customized",
       "loading": "Loading instrumentations…",
       "error": "Failed to load instrumentations.",
       "readout": {
         "search": "Search “{{search}}” · {{shown}} of {{total}}",
         "customized": "Customized · {{count}} of {{total}}",
-        "noFilter": "No filter · {{total}} modules"
+        "noFilter_one": "No filter · {{count}} module",
+        "noFilter_other": "No filter · {{count}} modules"
       },
       "empty": {
         "search": "No instrumentations match “{{search}}”. Clear the search to show all {{total}}.",

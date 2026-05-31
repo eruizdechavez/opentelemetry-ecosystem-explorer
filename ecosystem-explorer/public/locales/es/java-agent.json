@@ -23,7 +23,8 @@
   },
   "list": {
     "title": "OpenTelemetry Java Agent",
-    "description": "Explora {{count}} instrumentaciones disponibles.",
+    "description_one": "Explora {{count}} instrumentación disponible.",
+    "description_other": "Explora {{count}} instrumentaciones disponibles.",
     "invalidVersion": "La versión \"{{version}}\" no fue encontrada. Mostrando la versión más reciente ({{latest}}) en su lugar.",
     "dismiss": "Cerrar",
     "loading": "Cargando instrumentaciones...",
@@ -110,7 +111,8 @@
     "results": {
       "loading": "Cargando...",
       "error": "No se pueden cargar las configuraciones",
-      "found": "Se encontraron {{count}} configuraciones",
+      "found_one": "Se encontró {{count}} configuración",
+      "found_other": "Se encontraron {{count}} configuraciones",
       "empty": "No se encontraron configuraciones que coincidan con tu búsqueda."
     }
   },
@@ -178,7 +180,8 @@
     "label": "Versión"
   },
   "multiGroupCard": {
-    "versions": "{{count}} versiones"
+    "versions_one": "{{count}} versión",
+    "versions_other": "{{count}} versiones"
   },
   "subItem": {
     "viewDetails": "Ver detalles de {{name}}"
@@ -297,14 +300,17 @@
     },
     "browser": {
       "title": "Instrumentaciones",
-      "count": "· {{count}} módulos",
-      "customized": "· {{count}} personalizado(s)",
+      "count_one": "· {{count}} módulo",
+      "count_other": "· {{count}} módulos",
+      "customized_one": "· {{count}} personalizado",
+      "customized_other": "· {{count}} personalizados",
       "loading": "Cargando instrumentaciones…",
       "error": "Error al cargar instrumentaciones.",
       "readout": {
         "search": "Buscar “{{search}}” · {{shown}} de {{total}}",
         "customized": "Personalizado · {{count}} de {{total}}",
-        "noFilter": "Sin filtro · {{total}} módulos"
+        "noFilter_one": "Sin filtro · {{count}} módulo",
+        "noFilter_other": "Sin filtro · {{count}} módulos"
       },
       "empty": {
         "search": "No hay instrumentaciones que coincidan con “{{search}}”. Limpia la búsqueda para mostrar todos los {{total}}.",
